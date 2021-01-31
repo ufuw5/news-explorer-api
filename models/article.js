@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const { isWebUri } = require('valid-url');
 
 const articleSchema = new Schema({
   keyword: {
@@ -25,7 +26,7 @@ const articleSchema = new Schema({
     type: String,
     required: true,
     validate: {
-      validator(v) { return /^https?:\/\/(www\.)?[\w\W\S\d/]#?/gi.test(v); },
+      validator(v) { return isWebUri(v); },
       message: 'Неверная ссылка',
     },
   },
@@ -33,7 +34,7 @@ const articleSchema = new Schema({
     type: String,
     required: true,
     validate: {
-      validator(v) { return /^https?:\/\/(www\.)?[\w\W\S\d/]#?/gi.test(v); },
+      validator(v) { return isWebUri(v); },
       message: 'Неверная ссылка',
     },
   },

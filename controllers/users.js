@@ -15,11 +15,11 @@ module.exports.createUser = (req, res, next) => {
       email,
       password: hash,
       name,
-    }, (err) => {
+    }, (err, data) => {
       if (err && err.code === 11000) {
         return next(new ConflictError('Пользователь с таким email уже существует'));
       }
-      return res.send();
+      return res.send({ data: { email: data.email, name: data.name } });
     })).catch(next);
 };
 

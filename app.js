@@ -15,7 +15,7 @@ const { PORT = 3000, NODE_ENV, DB_LINK } = process.env;
 
 const app = express();
 
-mongoose.connect('mongodb://'.concat(NODE_ENV === 'production' ? DB_LINK : 'localhost:27017').concat('/diplomdb'), {
+mongoose.connect('mongodb://'.concat(NODE_ENV === 'production' ? DB_LINK : 'localhost:27017/diplomdb'), {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
