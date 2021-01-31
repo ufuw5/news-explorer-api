@@ -11,11 +11,19 @@ const rateLimit = require('./middlewares/rateLimit');
 const routes = require('./routes/index');
 const NotFoundError = require('./errors/NotFoundError');
 
-const { PORT = 3000, NODE_ENV, DB_LINK } = process.env;
+const {
+  PORT = 3000,
+  NODE_ENV,
+  DB_LINK,
+  DB_NAME,
+} = process.env;
 
 const app = express();
 
-mongoose.connect('mongodb://'.concat(NODE_ENV === 'production' ? DB_LINK : 'localhost:27017/diplomdb'), {
+mongoose.connect('mongodb://'
+  .concat(NODE_ENV === 'production' ? DB_LINK : 'localhost:27017')
+  .concat('/')
+  .concat(NODE_ENV === 'production' ? DB_NAME : 'diplomdb'), {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
