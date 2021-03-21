@@ -17,8 +17,8 @@ router.post('/', celebrate({
     text: Joi.string().required(),
     date: Joi.string().required(),
     source: Joi.string().required(),
-    link: Joi.string().required().pattern(/^https?:\/\/[a-zA-Zа-яА-Я0-9_\-.]+\.[a-zA-Zа-яА-Я]{2,9}(\/|:|\?[!-~]*)?$/),
-    image: Joi.string().required().pattern(/^https?:\/\/[a-zA-Zа-яА-Я0-9_\-.]+\.[a-zA-Zа-яА-Я]{2,9}(\/|:|\?[!-~]*)?$/),
+    link: Joi.string().required().pattern(/^https?:\/\/[a-zA-Zа-яА-Я0-9_\-.]+\.[a-zA-Zа-яА-Я]{2,9}(\/|:|\?[!-~]*)?/),
+    image: Joi.string().required().pattern(/^https?:\/\/[a-zA-Zа-яА-Я0-9_\-.]+\.[a-zA-Zа-яА-Я]{2,9}(\/|:|\?[!-~]*)?/),
   }).unknown(true),
 }), articles.createArticle);
 
